@@ -16,3 +16,18 @@ If you don't already have a git client installed, try https://tortoisegit.org/do
 
 Then go to https://github.com/tomdickharryeth/ww-blockchain-dev and clone into a local folder of your choice
 
+## Open up the Anaconda prompt and install python dependencies
+
+Go to your start menu and search for Anaconda Prompt. Add this as a shortcut as we'll be using this a lot.
+
+Now we need to install the web3 python library as we'll be using this heavily. In the Anaconda prompt type
+
+pip install web3
+
+
+
+
+
+
+
+https://github.com/ethereum/research/blob/master/papers/CasperTFG/CasperTFG.pdf
