@@ -36,6 +36,7 @@ Remember your git path as you'll need it later.
 Now we need to install the web3 python library as we'll be using this heavily. In the Anaconda prompt type
 
 **pip install web3**
+**pip install moralis**
 
 ## Move to your ww-blockchain-dev folder and launch Jupyter Notebook
 
