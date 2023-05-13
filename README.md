@@ -65,4 +65,8 @@ Put your api keys in there, in the format:
 
 .env files are ignored by default by git (i.e. they are there by default in .gitignore) so they will not be committed to your git branch.
 
+https://docs.etherscan.io/getting-started/viewing-api-usage-statistics
 
+https://cro-docs.alchemy.com/guides/getting-started
+
+https://docs.moralis.io/web3-data-api/evm/get-your-api-key
