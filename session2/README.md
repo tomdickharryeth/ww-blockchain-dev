@@ -39,6 +39,20 @@ Hardhat doesn't support interacting with a wallet app like Metamask or Ledger so
 
 Remember, as mentioned above, it's recommended to create a new dedicated wallet for this.
 
+## Looking at the token contract
+
+If you do not already have an IDE that you are used to, VS Code is a good IDE to use.
+
+https://code.visualstudio.com/download 
+
+Once installed, head to the Extensions tab and install Juan Blanco's solidity addin
+
+![image](https://github.com/tomdickharryeth/ww-blockchain-dev/assets/103291582/ce279734-04d1-472e-8bfb-9b6cbfe3be0f)
+
+Open up our contracts/Token.sol file and take a look.
+
+## Compile, deploy and verify the contract
+
 ### Compile the contract
 
 Run the command below to ask hardhat to compile the smart contract 
@@ -69,5 +83,5 @@ In order to be able to call our contract on Etherscan, we need to upload the sou
 This is very easy to do using the etherscan package which was already installed earlier. Just call this command below.
 
 
-`` npx hardhat verify $NFT_CONTRACT_ADDRESS``
+`` npx hardhat verify {NFT_CONTRACT_ADDRESS}``
 
