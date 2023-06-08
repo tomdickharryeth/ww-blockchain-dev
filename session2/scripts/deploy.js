@@ -7,11 +7,12 @@ async function main() {
 	console.log(`Account balance: ${(await deployer.getBalance()).toString()}`);
 
 	// Fetch the compiled contract using ethers.js
-	const NFT = await ethers.getContractFactory("PolarisOGs");
+	const TokenContract = await ethers.getContractFactory("WhipzToken");
+	const instance = await upgrades.deployProxy(TokenContract, [1000000000]);
 	// calling deploy() will return an async Promise that we can await on 
-	const nft = await NFT.deploy();
+	await instance.deployed();
 
-	console.log(`Contract deployed to address: ${nft.address}`);
+	console.log(`Contract deployed to address: ${instance.address}`);
 }
 
 main()
