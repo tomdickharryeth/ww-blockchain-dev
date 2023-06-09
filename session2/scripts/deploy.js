@@ -8,7 +8,7 @@ async function main() {
 
 	// Fetch the compiled contract using ethers.js
 	const TokenContract = await ethers.getContractFactory("WhipzToken");
-	const instance = await upgrades.deployProxy(TokenContract, [1000000000]);
+	const instance = await upgrades.deployProxy(TokenContract, {initializer: 'initialize()'});
 	// calling deploy() will return an async Promise that we can await on 
 	await instance.deployed();
 
