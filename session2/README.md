@@ -80,8 +80,10 @@ Make a note of the address that the contract was deployed to.
 
 In order to be able to call our contract on Etherscan, we need to upload the source contract code and use Etherscan's verification functionality.
 
-This is very easy to do using the etherscan package which was already installed earlier. Just call this command below.
+Our script deploys both a proxy and an implementation contract. We need to verify the implementation contract. In Etherscan look up the contract from NFT_CONTRACT_ADDRESS above.
+
+In the Contract tab, it will show you a message about the contract potentially being a proxy. If you select "Is this a proxy" from the Option tab, the next screen will show you the implementation contract address. Make a note of this. Back in the bash window, call:
 
 
-`` npx hardhat verify {NFT_CONTRACT_ADDRESS}``
+`` npx hardhat verify {IMPLEMENTATION_ADDRESS}``
 
