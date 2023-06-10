@@ -87,3 +87,9 @@ In the Contract tab, it will show you a message about the contract potentially b
 
 `` npx hardhat verify {IMPLEMENTATION_ADDRESS}``
 
+### Further reading
+
+https://docs.openzeppelin.com/contracts/4.x/erc20 
+
+
+https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable
