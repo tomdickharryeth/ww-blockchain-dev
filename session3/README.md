@@ -10,6 +10,12 @@ By now you should be all set up and familiar with hardhat, so there are just a f
 
 Remember that you need to to create a .env file in the session 3 root folder , just like the way you did for session 2. 
 
+``ALCHEMY_KEY="..." ``
+
+``ACCOUNT_PRIVATE_KEY="..." ``
+
+``ETHERSCAN_API_KEY="..." ``
+
 ## Compile, deploy and verify the contract
 
 ### Compile the contract
