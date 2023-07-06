@@ -1,55 +1,14 @@
 # Wilder World Community Led Events: Blockchain Coding
-# Session 2: Launching an ERC-20 Token
+# Session 3: Deploying a token sales contract
 
 ## Overview
-This session we will be creating our own ERC-20 token.
-We will look at
-- Setting up our simple Node.js environment with Hardhat 
-- Creating a smart contract using Solidity, which implements the ERC-20 standards
-- Compiling and deploying this contract onto Ethereum Testnet using Hardhat
-- Verifying the code on Etherscan
+This session we will be creating our own Token Sales contract which will allow people to buy the Whipz token we created in Session 2.
+
+By now you should be all set up and familiar with hardhat, so there are just a few deployment notes in this readme.
 
 ## Setup
 
-### Wallet setup
-We will need to write our wallet's private key into the .env file, so it is recommended to create a new dedicated wallet using Metamask
-
-Once done, add some Goerli Testnet eth by going to https://goerlifaucet.com/
-
-### Install dependencies via npm 
-Open a Git Bash terminal from your session2 root, and run 
-**``npm install``**<br> 
-
-This will install all the dependent packages that we need (these are all specified in package.json)
-If you see an error that npm is not installed, you will need to install node.js. This is a good guide on how to do so: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-
-### Setup Hardhat
-Hardhat is a command line based Ethereum development environment. It lets us compile, test and deploy Ethereum smart contracts.
-You will see that this repo already has a hardhat.config.js. This is a ocnfiguration file where we define blockchain variables such as networks and accounts.
-
-Now you need to create a .env file in the session 2 root folder, just like the way you did for session 1. 
-
-``ETHERSCAN_API_KEY=(your key)``<br>
-``ALCHEMY_KEY==(your key)``<br>
-``ACCOUNT_PRIVATE_KEY==(your key)``<br>
-
-The ACCOUNT_PRIVATE_KEY is the private key that you need to export from Metamask. See here https://metamask.zendesk.com/hc/en-us/articles/360015289632 for how to do this.
-
-Hardhat doesn't support interacting with a wallet app like Metamask or Ledger so the private key must be stored here.
-
-Remember, as mentioned above, it's recommended to create a new dedicated wallet for this.
-
-## Looking at the token contract
-
-If you do not already have an IDE that you are used to, VS Code is a good IDE to use.
-
-https://code.visualstudio.com/download 
-
-Once installed, head to the Extensions tab and install Juan Blanco's solidity addin
-
-![image](https://github.com/tomdickharryeth/ww-blockchain-dev/assets/103291582/ce279734-04d1-472e-8bfb-9b6cbfe3be0f)
-
-Open up our contracts/Token.sol file and take a look.
+Remember that you need to to create a .env file in the session 3 root folder , just like the way you did for session 2. 
 
 ## Compile, deploy and verify the contract
 
@@ -61,10 +20,11 @@ Run the command below to ask hardhat to compile the smart contract
 
 ### Deploy the contract into testnet
 
-Run the command below to deploy the contract onto Ethereum Goerli testnet. This will cost (goerli) gas.
+I decided to switch to Sepolia because Goerli is becoming really congested.
+Run the command below to deploy the contract onto Ethereum Sepolia testnet. This will cost (sepolia) gas.
 
 
-``npx hardhat run scripts/deploy.js --network goerli``
+``npx hardhat run scripts/deploy.js --network sepolia``
 
 If all goes well, you should see a response that looks like this
 
@@ -78,18 +38,13 @@ Make a note of the address that the contract was deployed to.
 
 ### Verify the contract on Etherscan
 
-In order to be able to call our contract on Etherscan, we need to upload the source contract code and use Etherscan's verification functionality.
+Our TokenSales contract has constructor arguments so this command is a bit different from before. 
 
-Our script deploys both a proxy and an implementation contract. We need to verify the implementation contract. In Etherscan look up the contract from NFT_CONTRACT_ADDRESS above.
+The idea is that we need to pass in the constructor arguments as well. We need to check the deploy.js file to see what these are, or just use the command below.
 
-In the Contract tab, it will show you a message about the contract potentially being a proxy. If you select "Is this a proxy" from the Option tab, the next screen will show you the implementation contract address. Make a note of this. Back in the bash window, call:
+`` npx hardhat verify --contract contracts/TokenSale.sol:TokenSale {IMPLEMENTATION_ADDRESS} 1000000 '0xa90B01e34D5eB0eF48ece9F23c4c953568440147' "0xF10A5267B4faCBd19574Ef65EB85185fAbe455E0" ``
 
-
-`` npx hardhat verify {IMPLEMENTATION_ADDRESS}``
 
 ### Further reading
 
-https://docs.openzeppelin.com/contracts/4.x/erc20 
-
-
-https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable
+https://docs.openzeppelin.com/contracts/2.x/crowdsales
