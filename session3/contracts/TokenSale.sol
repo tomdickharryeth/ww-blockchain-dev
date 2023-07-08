@@ -1,12 +1,11 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.3;
+pragma solidity ^0.5.5;
 
-import "@openzeppelin/contracts-upgradeable/token/ERC20/presets/ERC20PresetMinterPauserUpgradeable.sol";
+import "@openzeppelin/contracts/crowdsale/Crowdsale.sol";
+import "@openzeppelin/contracts/ownership/Ownable.sol";
 
-contract TokenSale is ERC20PresetMinterPauserUpgradeable
-{
-  function initialize() public initializer 
-  {
-    __ERC20PresetMinterPauser_init("WhipzToken", "WHIPZ");
-  }
+contract TokenSale is Crowdsale, Ownable {
+  constructor(uint256 rate,    // rate in TKNbits
+              address payable wallet,
+              IERC20 token) Crowdsale(rate, wallet, token)
+        public {}
 }
