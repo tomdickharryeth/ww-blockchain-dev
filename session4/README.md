@@ -4,7 +4,7 @@
 
 Use what you learned in Sessions 1 and 3, to claim testnet tokens from the Whipz sale contract which we saw in Session 3.
 
-Once you have done so, DM me on Discord or Twitter with the wallet address that you used. The first three people to claim Whipz from the contract will get 1000 Discord XP!
+Once you have done so, DM me on Discord or Twitter with the wallet address that you used. The first three people to claim Whipz from the contract will get 100 Discord XP!
 
 Make sure you create a new wallet using Metamask since we will be handling the private key in code
 
