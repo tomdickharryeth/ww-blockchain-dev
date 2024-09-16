@@ -17,7 +17,16 @@ Or if you already have another Python distribution installed, you should navigat
 
 ## Git
 
-If you don't already have a git client installed, try https://tortoisegit.org/download/ 
+Git is a commonly used source code repository - this means that it is used to store and manage source code.
+
+If you don't already have a git client installed, you can follow the guides below. The first step installs git itself:
+
+https://learn.adafruit.com/an-introduction-to-collaborating-with-version-control/windows
+https://learn.adafruit.com/an-introduction-to-collaborating-with-version-control/os-x
+
+If you are using windows, this guide installs tortoisegit which gives you a nicer user interface to interact with git through the windows context menus.
+
+https://learn.adafruit.com/an-introduction-to-collaborating-with-version-control/installing-tortoisegit-on-windows
 
 Then go to https://github.com/tomdickharryeth/ww-blockchain-dev and paste the link that you see in Code
 
