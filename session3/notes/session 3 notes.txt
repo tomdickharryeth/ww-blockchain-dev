@@ -1,0 +1,42 @@
+
+
+
+whipz
+https://goerli.etherscan.io/token/0xF10A5267B4faCBd19574Ef65EB85185fAbe455E0#writeProxyContract
+
+https://sepolia.etherscan.io/address/0x9f154d7b7a00a2a280733409aea309d2aea496f8
+
+https://docs.openzeppelin.com/contracts/2.x/crowdsales
+
+
+tokensales
+
+https://sepolia.etherscan.io/address/0x856820ee9EE8137D1c651689Ab6D548f5ac81fA1
+
+
+verify
+
+$ npx hardhat verify --contract contracts/TokenSale.sol:TokenSale 0x856820ee9EE8137D1c651689Ab6D548f5ac81fA1 1000000 '0xa90B01e34D5eB0eF48ece9F23c4c953568440147' "0x9f154d7b7a00a2a280733409aea309d2aea496f8"
+
+
+So, if you want to issue someone "one token for every 2 wei" and your decimals are 18, your rate is 0.5e18. 
+Then, when I send you 2 wei, your crowdsale issues me 2 * 0.5e18 TKNbits, which is exactly equal to 10^18 TKNbits and is displayed as 1 TKN.
+
+If you want to issue someone “1 TKN` for every 1 ETH”, and your decimals are 18, your rate is `1. 
+This is because what’s actually happening with the math is that the contract sees a user send 10^18 wei, not 1 ETH. 
+Then it uses your rate of 1 to calculate TKNbits = rate * wei, or 1 * 10^18, which is still 10^18. 
+And because your decimals are 18, this is displayed as 1 TKN.
+
+
+
+
+	const rate = 1000000; // 1 ETH purchases 1,000,000 whipz 
+	const proceedsWallet = '0xa90B01e34D5eB0eF48ece9F23c4c953568440147';
+	const whipzContractAddress = "0xF10A5267B4faCBd19574Ef65EB85185fAbe455E0";
+	
+	
+	
+	
+Smart contract pitfalls
+
+- use SafeMath 
